@@ -3,33 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Aniversário de Namoro ❤️</title>
+    <title>Feliz Aniversário de Namoro</title>
+    <link rel="icon" type="image/png" href="pixel-heart.webp">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="script.js" defer></script>
     <style>
         body {
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #fce4ec 0%, #ffe0f7 100%);
+            color: #7b1fa2;
             display: flex;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
-            background-color: #fce4ec;
-            color: #880e4f;
+            align-items: center;
+            justify-content: flex-start;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
             transition: background 0.5s, color 0.5s;
         }
         .container {
+            background: #fff6fb;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px #c77dff22;
+            padding: 32px 32px 24px 32px;
+            margin-top: 48px;
             text-align: center;
+            max-width: 420px;
+            width: 100%;
+        }
+        #main-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ad1457;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px #f8bbd0;
         }
         #counter {
-            font-size: 2rem;
+            font-size: 1.7rem;
             animation: heartbeat 1.5s infinite alternate;
+            margin-bottom: 8px;
         }
         @keyframes heartbeat {
             from { transform: scale(1); }
-            to { transform: scale(1.1); }
+            to { transform: scale(1.08); }
+        }
+        #love-message {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #7b1fa2;
         }
         #stitch {
-            width: 200px;
+            width: 180px;
+            border-radius: 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 16px #c77dff33;
             opacity: 0;
             animation: fadeIn 2s forwards;
         }
@@ -37,35 +64,365 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        .btn-group-custom {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .btn-custom {
+            font-size: 1.08rem;
+            font-weight: 500;
+            border-radius: 12px;
+            padding: 10px 22px;
+            box-shadow: 0 2px 8px #f8bbd033;
+            border: none;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+        #love-button {
+            background: linear-gradient(90deg, #1976d2 60%, #e040fb 100%);
+            color: #fff;
+        }
+        #love-button:hover {
+            background: linear-gradient(90deg, #1565c0 60%, #d500f9 100%);
+            color: #fff;
+        }
+        #theme-button {
+            background: #ececec;
+            color: #7b1fa2;
+        }
+        #theme-button:hover {
+            background: #e1bee7;
+            color: #4a148c;
+        }
+        #music-button {
+            background: linear-gradient(90deg, #43a047 60%, #00e676 100%);
+            color: #fff;
+        }
+        #music-button:hover {
+            background: linear-gradient(90deg, #388e3c 60%, #00c853 100%);
+            color: #fff;
+        }
         .dark-mode {
-            background-color: #212121;
+            background: linear-gradient(135deg, #212121 0%, #3a1c4d 100%);
             color: #fce4ec;
         }
+        .dark-mode .container {
+            background: #2d1933;
+            box-shadow: 0 8px 32px #0006;
+        }
+        .dark-mode #main-title {
+            color: #f8bbd0;
+            text-shadow: 0 2px 8px #7b1fa2;
+        }
+        .dark-mode #love-message {
+            color: #fce4ec;
+        }
+        .dark-mode #theme-button {
+            background: #4a148c;
+            color: #fff;
+        }
+        .dark-mode #theme-button:hover {
+            background: #7b1fa2;
+            color: #fff;
+        }
+        .dark-mode #love-button {
+            background: linear-gradient(90deg, #512da8 60%, #ad1457 100%);
+        }
+        .dark-mode #music-button {
+            background: linear-gradient(90deg, #00695c 60%, #00bfae 100%);
+        }
+        /* Galeria de fotos */
+        #photo-gallery {
+            background: #fff6fb;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px #c77dff22;
+            padding: 20px 0 16px 0;
+            margin: 32px auto 0 auto;
+            max-width: 370px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #gallery-img {
+            width: 260px;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px #c77dff33;
+            margin-bottom: 10px;
+            transition: opacity 0.8s;
+        }
+        .gallery-btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        .gallery-btn {
+            border-radius: 8px;
+            padding: 6px 18px;
+            font-size: 1rem;
+            background: #e1bee7;
+            color: #7b1fa2;
+            border: none;
+            transition: background 0.2s, color 0.2s;
+        }
+        .gallery-btn:hover {
+            background: #ce93d8;
+            color: #4a148c;
+        }
+        .dark-mode #photo-gallery {
+            background: #2d1933;
+            box-shadow: 0 4px 16px #0006;
+        }
+        .dark-mode .gallery-btn {
+            background: #4a148c;
+            color: #fff;
+        }
+        .dark-mode .gallery-btn:hover {
+            background: #7b1fa2;
+            color: #fff;
+        }
+        /* Corações animados */
         .heart {
             position: absolute;
             color: red;
             font-size: 1.5rem;
             animation: fall 3s linear forwards;
+            pointer-events: none;
         }
         @keyframes fall {
             from { transform: translateY(0); opacity: 1; }
             to { transform: translateY(100vh); opacity: 0; }
         }
+        /* Linha do tempo */
+        .timeline-container {
+            max-width: 420px;
+            margin: 36px auto 0 auto;
+            padding: 0 10px;
+        }
+        .timeline {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #e040fb 0%, #1976d2 100%);
+            border-radius: 2px;
+        }
+        .timeline-event {
+            position: relative;
+            margin-bottom: 38px;
+            padding-left: 60px;
+            min-height: 60px;
+            transition: background 0.2s;
+        }
+        .timeline-event:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 14px;
+            top: 8px;
+            width: 22px;
+            height: 22px;
+            background: #fff;
+            border: 4px solid #e040fb;
+            border-radius: 50%;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px #e040fb33;
+            transition: border 0.2s;
+        }
+        .timeline-event:hover .timeline-dot {
+            border: 4px solid #1976d2;
+        }
+        .timeline-content {
+            background: #fff6fb;
+            border-radius: 12px;
+            padding: 14px 18px 12px 18px;
+            box-shadow: 0 2px 12px #c77dff22;
+            transition: box-shadow 0.2s, background 0.2s;
+        }
+        .timeline-event:hover .timeline-content {
+            background: #e3f2fd;
+            box-shadow: 0 4px 18px #1976d233;
+        }
+        .timeline-date {
+            font-weight: bold;
+            color: #ad1457;
+            font-size: 1.08rem;
+            margin-bottom: 2px;
+            display: block;
+        }
+        .timeline-title {
+            font-size: 1.08rem;
+            color: #7b1fa2;
+            margin-bottom: 2px;
+        }
+        .timeline-desc {
+            font-size: 0.97rem;
+            color: #444;
+        }
+        @media (max-width: 600px) {
+            .container, #photo-gallery {
+                max-width: 98vw;
+                padding: 12px 2vw;
+            }
+            #gallery-img {
+                width: 90vw;
+                max-width: 98vw;
+            }
+            .timeline-container {
+                max-width: 98vw;
+                padding: 0 2vw;
+            }
+            .timeline-content {
+                padding: 10px 8px 10px 12px;
+            }
+        }
+        /* Dark mode */
+        .dark-mode .timeline-content {
+            background: #2d1933;
+            color: #fce4ec;
+            box-shadow: 0 2px 12px #0006;
+        }
+        .dark-mode .timeline-event:hover .timeline-content {
+            background: #3a1c4d;
+        }
+        .dark-mode .timeline-date {
+            color: #f8bbd0;
+        }
+        .dark-mode .timeline-title {
+            color: #b388ff;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Feliz Aniversário de Namoro ❤️</h1>
+        <h1 id="main-title">Feliz Aniversário de Namoro ❤️</h1>
         <p id="counter"></p>
-        <p id="love-message"></p> <!-- ADICIONADO -->
+        <p id="love-message"></p>
         <img id="stitch" src="https://i.pinimg.com/originals/28/36/29/2836293ac9e1c350bdb55521a89f6de4.gif" alt="Stitch com corações">
-        <br><br>
-        <button id="love-button" class="btn btn-primary">Eu te amo ❤️</button>
-        <button id="theme-button" class="btn btn-secondary">Modo Claro/Escuro</button>
+        <div class="btn-group-custom">
+            <button id="love-button" class="btn-custom">Eu te amo ❤️</button>
+            <button id="theme-button" class="btn-custom">Modo Claro/Escuro</button>
+            <button id="music-button" class="btn-custom">🎵 Música</button>
+        </div>
         <audio id="loveSong" loop>
             <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
         </audio>
-        <button id="music-button" class="btn btn-success mt-3">🎵 Música</button>
     </div>
+
+    <!-- Linha do tempo do relacionamento -->
+    <div class="timeline-container">
+        <h2 style="color:#ad1457; font-size:1.3rem; margin-bottom:18px; text-align:center;">Nossa Linha do Tempo</h2>
+        <ul class="timeline">
+            <li class="timeline-event">
+                <span class="timeline-dot" title="Cinema">🎬</span>
+                <div class="timeline-content">
+                    <span class="timeline-date">02/08</span>
+                    <span class="timeline-title">Primeiro Encontro no Cinema</span>
+                    <div class="timeline-desc">
+                        Assistimos <b>Meu Malvado Favorito 4</b> juntos. Nosso primeiro encontro, cheio de risadas e emoção! 🍿
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-event">
+                <span class="timeline-dot" title="Aniversário de Namoro">💑</span>
+                <div class="timeline-content">
+                    <span class="timeline-date">11/03</span>
+                    <span class="timeline-title">Aniversário de Namoro</span>
+                    <div class="timeline-desc">
+                        O início oficial da nossa história juntos. Que venham muitos anos! 💖
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-event">
+                <span class="timeline-dot" title="Dia dos Namorados">🌹</span>
+                <div class="timeline-content">
+                    <span class="timeline-date">12/06</span>
+                    <span class="timeline-title">Dia dos Namorados</span>
+                    <div class="timeline-desc">
+                        Celebrando o amor, carinho e todos os momentos especiais ao seu lado. 💝
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-event">
+                <span class="timeline-dot" title="Natal">🎄</span>
+                <div class="timeline-content">
+                    <span class="timeline-date">25/12</span>
+                    <span class="timeline-title">Natal</span>
+                    <div class="timeline-desc">
+                        Mesmo distantes, o Natal foi mais bonito com você no coração. Que venham muitos juntos! ✨
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="photo-gallery" class="my-4">
+        <img id="gallery-img" src="foto1.jpg" alt="Foto do casal">
+        <div class="gallery-btn-group">
+            <button id="prev-photo" class="gallery-btn">Anterior</button>
+            <button id="next-photo" class="gallery-btn">Próxima</button>
+        </div>
+    </div>
+
+    <script>
+        // Galeria de fotos
+        const fotos = [
+            'foto1.jpg',
+            'foto2.jpg',
+            'foto3.jpg'
+        ];
+        let fotoAtual = 0;
+        const img = document.getElementById('gallery-img');
+        const prevBtn = document.getElementById('prev-photo');
+        const nextBtn = document.getElementById('next-photo');
+
+        function mostrarFoto(index) {
+            img.style.opacity = 0;
+            setTimeout(() => {
+                img.src = fotos[index];
+                img.style.opacity = 1;
+            }, 400);
+        }
+
+        prevBtn.onclick = () => {
+            fotoAtual = (fotoAtual - 1 + fotos.length) % fotos.length;
+            mostrarFoto(fotoAtual);
+        };
+        nextBtn.onclick = () => {
+            fotoAtual = (fotoAtual + 1) % fotos.length;
+            mostrarFoto(fotoAtual);
+        };
+
+        mostrarFoto(fotoAtual);
+
+        // Efeito de corações flutuantes
+        const loveButton = document.getElementById('love-button');
+        loveButton.addEventListener('click', function(e) {
+            for (let i = 0; i < 12; i++) {
+                const heart = document.createElement('span');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = (e.clientX || window.innerWidth/2) + (Math.random()*80-40) + 'px';
+                heart.style.top = (e.clientY || 200) + 'px';
+                heart.style.fontSize = (Math.random()*1.2 + 1) + 'rem';
+                heart.style.animationDuration = (Math.random()*1.5 + 2) + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 3000);
+            }
+        });
+    </script>
 </body>
 </html>

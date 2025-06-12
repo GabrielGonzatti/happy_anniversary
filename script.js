@@ -10,10 +10,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const messageElement = document.getElementById('love-message');
     const counterElement = document.getElementById('counter');
+    const mainTitle = document.getElementById('main-title');
 
     // Verifica se é 12 de junho (Dia dos Namorados)
     if (today.toDateString() === anniversaryDate.toDateString()) {
         messageElement.textContent = '💖 Feliz Dia dos Namorados! 💖';
+        mainTitle.textContent = 'Feliz Dia dos Namorados ❤️';
+        document.title = 'Feliz Dia dos Namorados ❤️';
+    }
+    // Verifica se é 11 de março (Aniversário de Namoro)
+    else if (today.getDate() === 11 && today.getMonth() === 2) { // Março é mês 2 (zero-based)
+        messageElement.textContent = '🎉 Hoje é nosso aniversário de namoro! Te amo! 🎉';
+        mainTitle.textContent = 'Feliz Aniversário de Namoro ❤️';
+        document.title = 'Feliz Aniversário de Namoro ❤️';
     }
     // Verifica se é 25 de junho (Aniversário)
     else if (today.toDateString() === birthdayDate.toDateString()) {
@@ -29,8 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         messageElement.textContent = `🎂 Feliz Aniversário! Hoje você está fazendo ${age} anos! 🎂`;
+        mainTitle.textContent = 'Feliz Aniversário 🎂';
+        document.title = 'Feliz Aniversário 🎂';
     } else {
         messageElement.textContent = 'Eu amo você, feliz por cada segundo juntos!';
+        mainTitle.textContent = 'Feliz Aniversário de Namoro ❤️';
+        document.title = 'Feliz Aniversário de Namoro ❤️';
     }
 
     function updateCounter() {
